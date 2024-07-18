@@ -51,9 +51,10 @@ export const Player = () => {
       }
     }
 
-    // Move camera
+    // Move and rotate camera
     const { x, y, z } = playerRef.current.translation();
-    state.camera.position.set(x, 50, z);
+    state.camera.position.set(x, 30, z + 30); // Adjust z + 50 for a tilt-back effect
+    state.camera.lookAt(x, y, z); // Ensure camera looks at the player
   });
 
   const handleRightClick = (event) => {
